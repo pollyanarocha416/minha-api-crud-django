@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.http import JsonResponse
+from rest_framework import viewsets
+from CRUD.models import Pessoa
+from CRUD.serializer import PessoaSerializer
 
-# Create your views here.
+class PessoaViewSet(viewsets.ModelViewSet):
+    """Exibir pessoa"""
+    queryset = Pessoa.objects.all()
+    serializer_class = PessoaSerializer
+
